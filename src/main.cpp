@@ -1,5 +1,7 @@
 #include "terrain.hpp"
+#include "projectile.hpp"
 #include "tank.hpp"
+
 
 //------------------------------------------------------------------------------------
 // Program main entry point
@@ -12,8 +14,8 @@ int main(void)
     const int screenHeight = 750;
 
     InitWindow(screenWidth, screenHeight, "Tanks");
-    Terrain t(screenWidth, screenHeight, 10, 5, 20);
-    Tank p(t.points);
+    Terrain t(screenWidth, screenHeight, 10, 10, 10);
+    Tank p(t.points, 10);
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
@@ -22,9 +24,10 @@ int main(void)
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
+
+        p.updateTank();
+
+        if(IsKeyPressed(32)) p.fire();
 
         // Draw
         //----------------------------------------------------------------------------------

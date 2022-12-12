@@ -4,6 +4,7 @@
 #include <random>
 #include "raylib.h"
 #include <ctime>
+#include <cmath>
 
 class Terrain
 {
